@@ -17,14 +17,14 @@ class SplatHyperParams:
     near_far : Tensor # (1, 2)
 
 class SplatModel(LightningModule):
-    def __init__(self, gaussians : GaussianModel, hyper_params : SplatHyperParams) -> None:
+    def __init__(self, gaussians : GaussianModel, hyper_params : SplatHyperParams):
         super().__init__()
         self.gaussians = gaussians
         self.h = hyper_params
         self.render = GaussianRasterizer()
     
 
-    def training_step(self, gt_with_pose) -> Tensor | Mapping[str, Any] | None:
+    def training_step(self, gt_with_pose):
         iteration, gt_image, camera = gt_with_pose
 
         # Every 1000 its we increase the levels of SH up to a maximum degree
@@ -50,7 +50,7 @@ class SplatModel(LightningModule):
 
         return loss
     
-    def validation_step(self, gt_with_pose) -> Tensor | Mapping[str, Any] | None:
+    def validation_step(self, gt_with_pose):
         iteration, gt_image, camera = gt_with_pose
 
         # Every 1000 its we increase the levels of SH up to a maximum degree
