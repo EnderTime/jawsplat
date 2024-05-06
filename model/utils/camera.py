@@ -43,9 +43,9 @@ class Camera:
         cam_rot,
         tan_half_fov
     ) -> None:
-        self._pos = torch.Tensor(cam_pos, dtype = torch.float, device="cuda")
-        self._rot = torch.Tensor(cam_rot, dtype = torch.float, device="cuda")
-        self._tan_half_fov = torch.Tensor(tan_half_fov, dtype = torch.float, device="cuda")   
+        self._pos = torch.tensor(cam_pos, dtype = torch.float, device="cuda")
+        self._rot = torch.tensor(cam_rot, dtype = torch.float, device="cuda")
+        self._tan_half_fov = torch.tensor(tan_half_fov, dtype = torch.float, device="cuda")   
     
     @property
     def pos(self):

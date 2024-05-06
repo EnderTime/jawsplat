@@ -10,10 +10,10 @@ resolution = 8
 hypers = SplatHyperParams()
 
 hypers.random_background = False
-hypers.background = torch.Tensor([ 0, 0, 0 ], dtype = torch.float, device="cuda")
-hypers.img_size = torch.Tensor([ 1920/resolution, 1080/resolution ], dtype = torch.float, device="cuda")
+hypers.background = torch.tensor([ 0, 0, 0 ], dtype = torch.float, device="cuda")
+hypers.img_size = torch.tensor([ 1920/resolution, 1080/resolution ], dtype = torch.float, device="cuda")
 hypers.lambda_dssim = 0.01
-hypers.near_far = torch.Tensor([ 0.01, 100 ], dtype = torch.float, device="cuda")
+hypers.near_far = torch.tensor([ 0.01, 100 ], dtype = torch.float, device="cuda")
 
 gaussians = GaussianModel(3)
 gaussians.load_ply(r"resrc\fox\raw.ply")
